@@ -1,0 +1,26 @@
+imports:
+    - { resource: parameters.yml }
+
+services:
+    goztow.slowposting.controller.acp:
+        class: goztow\slowposting\controller\acp_controller
+        arguments:
+            - '@config'
+            - '@language'
+            - '@log'
+            - '@request'
+            - '@template'
+            - '@user'
+
+    goztow.slowposting.service:
+        class: goztow\slowposting\service
+        arguments:
+            - '@user'
+            - '%goztow.slowposting.tables.slowposting_table%'
+
+    goztow.slowposting.listener:
+        class: goztow\slowposting\event\main_listener
+        arguments:
+            - '@language'
+        tags:
+            - { name: event.listener }

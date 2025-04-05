@@ -1,0 +1,2 @@
+parameters:
+    goztow.slowposting.tables.slowposting_table: '%core.table_prefix%goztow_slowposting_table'
