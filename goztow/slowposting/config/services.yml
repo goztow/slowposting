@@ -1,0 +1,11 @@
+services:
+  goztow.slowposting.listener:
+    class: goztow\slowposting\event\listener
+    arguments:
+      - '@dbal.conn'
+      - '@user'
+      - '@request'
+      - '@config'
+      - '@user.time'
+    tags:
+      - { name: event.listener }
