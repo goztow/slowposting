@@ -1,0 +1,15 @@
+services:
+  goztow.slowposting.listener:
+    class: goztow\slowposting\event\listener
+    arguments:
+      - '@dbal.conn'
+      - '@user'
+      - '@request'
+      - '@config'
+      - '@goztow.user_time'
+    tags:
+      - { name: event.listener }
+
+  goztow.user_time:
+    class: \phpbb\user
+    arguments: ['@config']
